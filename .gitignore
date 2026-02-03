@@ -1,0 +1,90 @@
+# ============================
+# Node / NPM / Yarn
+# ============================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ============================
+# Ionic / Angular
+# ============================
+www/
+.tmp/
+.sass-cache/
+.angular/
+.angular/cache/
+dist/
+coverage/
+
+# ============================
+# Capacitor
+# ============================
+ios/App/Pods/
+ios/App/build/
+ios/App/DerivedData/
+ios/App/.symlinks/
+ios/App/Podfile.lock
+
+android/.gradle/
+android/app/build/
+android/build/
+android/capacitor-cordova-android-plugins/
+android/app/capacitor.build.gradle
+android/app/local.properties
+android/.idea/
+android/*.iml
+
+# ============================
+# Cordova (if still used)
+# ============================
+platforms/
+plugins/
+
+# ============================
+# Environment Files
+# ============================
+.env
+.env.*
+!.env.example
+
+# ============================
+# OS / Editor
+# ============================
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/launch.json
+
+# IntelliJ / WebStorm
+.idea/
+*.iml
+
+# ============================
+# Logs
+# ============================
+logs/
+*.log
+
+# ============================
+# Build / Temp
+# ============================
+*.tmp
+*.swp
+*.swo
+
+# ============================
+# Firebase (if used)
+# ============================
+.firebase/
+firebase-debug.log
+
+# ============================
+# Misc
+# ============================
+*.lock
