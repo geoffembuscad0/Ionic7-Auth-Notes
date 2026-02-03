@@ -1,0 +1,30 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div class="ion-text-center">
+    <h2>Ionic Supabase CRUD App</h2>
+  </div>
+
+  <form (ngSubmit)="login()" #form="ngForm">
+    <ion-list>
+      <ion-item>
+        <ion-input label="Email" type="email" [(ngModel)]="credentials.email" name="email" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input label="Password" type="password" [(ngModel)]="credentials.password" name="password" required></ion-input>
+      </ion-item>
+
+      <ion-button expand="block" type="submit" [disabled]="form.invalid" class="ion-margin-top">
+        Sign In
+      </ion-button>
+      <ion-button expand="block" fill="clear" routerLink="/register" (click)="navigateToRegister()">
+        Don't have an account? Register
+      </ion-button>
+    </ion-list>
+  </form>
+</ion-content>

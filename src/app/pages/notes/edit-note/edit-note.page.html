@@ -1,0 +1,48 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/dashboard"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Edit Note</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" [fullscreen]="true">
+  <form [formGroup]="noteForm" (ngSubmit)="updateNote()">
+    <ion-list lines="none">
+
+      <ion-item class="ion-margin-bottom">
+        <ion-input
+          label="Title"
+          labelPlacement="stacked"
+          type="text"
+          formControlName="title"
+          placeholder="Note title"
+          [errorText]="noteForm.get('title')?.hasError('minlength') ? 'Too short' : 'Required'"
+          [class.ion-invalid]="noteForm.get('title')?.invalid && noteForm.get('title')?.touched">
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-textarea
+          label="Content"
+          labelPlacement="stacked"
+          placeholder="Edit your thoughts..."
+          [autoGrow]="true"
+          formControlName="content"
+          rows="10">
+        </ion-textarea>
+      </ion-item>
+    </ion-list>
+
+    <div class="ion-padding-top">
+      <ion-button
+        expand="block"
+        type="submit"
+        [disabled]="noteForm.invalid"
+        shape="round">
+        Update Note
+      </ion-button>
+    </div>
+  </form>
+</ion-content>

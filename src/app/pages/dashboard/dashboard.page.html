@@ -1,0 +1,63 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Dashboard</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <div *ngIf="loading && notes.length === 0">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12" size-md="6" *ngFor="let i of [1,2,3,4]">
+          <ion-card>
+            <ion-card-header>
+              <ion-skeleton-text [animated]="true" style="width: 60%"></ion-skeleton-text>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-skeleton-text [animated]="true" style="width: 100%"></ion-skeleton-text>
+              <ion-skeleton-text [animated]="true" style="width: 40%"></ion-skeleton-text>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <div class="ion-text-center ion-padding" *ngIf="!loading && notes.length === 0">
+    <ion-icon name="document-text-outline" style="font-size: 64px; color: var(--ion-color-step-300);"></ion-icon>
+    <p style="color: var(--ion-color-step-600);">No notes yet — tap the + button to create one.</p>
+  </div>
+
+  <ion-grid *ngIf="notes.length > 0">
+    <ion-row>
+      <ion-col size="12" size-md="6" *ngFor="let note of notes; trackBy: trackByFn">
+        <ion-card class="note-card" (click)="openEdit(note.id)"> <ion-card-header>
+            <ion-card-title>{{ note.title }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <p class="note-content">
+              {{ note.content ? (note.content | slice:0:140) : 'No content...' }}
+            </p>
+            <div class="ion-margin-top" style="display: flex; justify-content: space-between; align-items: center;">
+              <small class="note-meta">{{ note.inserted_at | date:'medium' }}</small>
+              <ion-button fill="clear" size="small">
+                <ion-icon slot="icon-only" name="chevron-forward-outline"></ion-icon>
+              </ion-button>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-fab class="notes-fab" vertical="bottom" horizontal="end" slot="fixed" *ngIf="isLoggedIn$ | async">
+    <ion-fab-button (click)="openCreateNote()">
+      <ion-icon name="add-circle"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

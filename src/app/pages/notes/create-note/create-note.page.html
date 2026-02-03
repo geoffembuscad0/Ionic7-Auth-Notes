@@ -1,0 +1,50 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/dashboard"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Create Note</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" [fullscreen]="true">
+  <form [formGroup]="noteForm" (ngSubmit)="createNote()">
+    <ion-list lines="none">
+
+      <ion-item class="ion-margin-bottom">
+        <ion-input
+          label="Title"
+          labelPlacement="stacked"
+          type="text"
+          formControlName="title"
+          placeholder="Give your note a name"
+          [errorText]="noteForm.get('title')?.hasError('minlength') ? 'Title must be at least 3 characters' : 'Title is required'"
+          [class.ion-invalid]="noteForm.get('title')?.invalid && noteForm.get('title')?.touched"
+          [class.ion-touched]="noteForm.get('title')?.touched">
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-textarea
+          label="Content"
+          labelPlacement="stacked"
+          placeholder="Write your thoughts..."
+          [autoGrow]="true"
+          formControlName="content"
+          rows="10">
+        </ion-textarea>
+      </ion-item>
+
+    </ion-list>
+
+    <div class="ion-padding-top">
+      <ion-button
+        expand="block"
+        type="submit"
+        [disabled]="noteForm.invalid"
+        shape="round">
+        Save Note
+      </ion-button>
+    </div>
+  </form>
+</ion-content>

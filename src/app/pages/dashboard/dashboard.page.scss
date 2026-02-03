@@ -1,0 +1,53 @@
+:host {
+  display: block;
+}
+
+/* small adjustment so FAB sits nicely above bottom UI elements */
+ion-fab.notes-fab {
+  --ion-safe-area-bottom: 12px;
+  margin-bottom: 0px;
+  position: fixed !important;
+  right: 1rem;
+  /* Add a small offset and include safe-area on iPhone X+ */
+  bottom: calc(1rem + env(safe-area-inset-bottom));
+  /* Fallback for older browsers that supported constant() */
+  bottom: calc(1rem + constant(safe-area-inset-bottom));
+  z-index: 999; /* keep it above most elements */
+}
+
+/* Card styling for notes grid */
+.note-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.note-card ion-card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 120px;
+}
+
+.note-content {
+  white-space: pre-wrap;
+  margin-bottom: 8px;
+  color: var(--ion-color-medium);
+}
+
+/* small meta row */
+.note-meta {
+  text-align: right;
+  color: var(--ion-color-medium);
+}
+
+/* center spinner while loading */
+.notes-grid-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 40px;
+}
+/*
+
+*/
