@@ -10,7 +10,7 @@ pnpm-debug.log*
 # ============================
 # Ionic / Angular
 # ============================
-www/
+www/*.*
 .tmp/
 .sass-cache/
 .angular/
