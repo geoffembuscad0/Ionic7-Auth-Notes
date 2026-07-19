@@ -16,8 +16,8 @@ bootstrapApplication(AppComponent, {
     {
       provide: SUPABASE_CONFIG,
       useValue: {
-        url: 'https://xrrpioappeetgnbsoaal.supabase.co',
-        key: 'sb_publishable_vIQ2dQmTQXezcFXHHCc61g_GNNtB7w2'
+        url: 'https://lvhopnndygjficdiewej.supabase.co',
+        key: 'sb_publishable_rzfPQZiJ_h-95FP1-zP9kA_HcX9p63-'
       }
     },
   ],
