@@ -1,0 +1,18 @@
+:root {
+  /* existing Ionic variables (keep yours) */
+  --ion-color-primary: #3880ff;
+  --ion-color-secondary: #0cd1e8;
+  --ion-background-color: #ffffff;
+  --ion-text-color: #000000;
+
+  /* add any other custom variables you use */
+}
+
+/* Dark theme overrides — we toggle this with data-theme="dark" on <html> */
+[data-theme='dark'] {
+  --ion-color-primary: #5b9cff;
+  --ion-color-secondary: #66d0e6;
+  --ion-background-color: #0b0b0d; /* dark background */
+  --ion-text-color: #e6eef8; /* light text */
+  /* override other variables you use (shadows, surface colors, etc.) */
+}
