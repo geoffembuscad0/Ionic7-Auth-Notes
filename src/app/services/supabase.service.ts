@@ -16,7 +16,7 @@ export class SupabaseService {
   currentUser = this._currentUser.asObservable();
 
   constructor() {
-    this.supabase = createClient(environment.supabaseUrl, environment.supabaseKey);
+    this.supabase = createClient(environment.supabase.url, environment.supabase.key);
     this.checkUserSession();
   }
 
